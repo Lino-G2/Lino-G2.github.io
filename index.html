@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mein Buch - [BUCHTITEL HIER EINFÜGEN]</title>
+    <title>Die 6 Stämme - Fantasy Buchreihe</title>
     <style>
         * {
             margin: 0;
@@ -15,30 +15,31 @@
             font-family: 'Georgia', serif;
             line-height: 1.8;
             color: #2c3e50;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         }
         
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
         
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            font-weight: bold;
+            font-size: 4rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
         
         header .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
+            font-size: 1.5rem;
+            opacity: 0.95;
             font-style: italic;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -46,247 +47,375 @@
         section {
             background: white;
             margin: 30px 0;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
         
         h2 {
             color: #2c3e50;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #3498db;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #6a11cb;
+            text-align: center;
         }
         
         h3 {
             color: #34495e;
-            font-size: 1.5rem;
-            margin: 25px 0 15px 0;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
         }
         
         p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+            text-align: justify;
         }
         
-        .book-cover {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .book-cover img {
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .placeholder {
-            background: #ecf0f1;
-            border-left: 4px solid #3498db;
-            padding: 15px 20px;
-            margin: 15px 0;
-            font-style: italic;
-            color: #7f8c8d;
-        }
-        
-        .info-grid {
+        .tribes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .tribe-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 6px solid;
+        }
+        
+        .tribe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+        
+        .tribe-card.amethyst { border-left-color: #9b59b6; background: linear-gradient(135deg, #f5e6ff 0%, #e8d5f2 100%); }
+        .tribe-card.citrin { border-left-color: #f39c12; background: linear-gradient(135deg, #fff9e6 0%, #ffe8b3 100%); }
+        .tribe-card.rubin { border-left-color: #e74c3c; background: linear-gradient(135deg, #ffe6e6 0%, #ffcccc 100%); }
+        .tribe-card.onyx { border-left-color: #2c3e50; background: linear-gradient(135deg, #e8eaf0 0%, #d0d3db 100%); }
+        .tribe-card.diamant { border-left-color: #ecf0f1; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); }
+        .tribe-card.aquamarin { border-left-color: #3498db; background: linear-gradient(135deg, #e6f7ff 0%, #cce7ff 100%); }
+        
+        .tribe-card h3 {
+            font-size: 2rem;
+            margin: 0 0 15px 0;
+        }
+        
+        .tribe-animal {
+            font-size: 3rem;
+            text-align: center;
             margin: 20px 0;
+        }
+        
+        .tribe-trait {
+            background: rgba(255,255,255,0.6);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+        
+        .book-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .book-info h3 {
+            color: white;
+            margin: 0 0 20px 0;
+        }
+        
+        .book-info p {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .editable-section {
+            background: #f8f9fa;
+            border: 2px dashed #6a11cb;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .editable-section h4 {
+            color: #6a11cb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .character-template {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #6a11cb;
+        }
+        
+        .character-template strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .character-template input, .character-template textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        footer a {
+            color: #6a11cb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #2575fc;
         }
         
         .info-box {
             background: #ecf0f1;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
         
-        .info-box strong {
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            margin: 20px 10px 10px 0;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .character-list {
+        .info-box ul {
             list-style: none;
             padding: 0;
         }
         
-        .character-list li {
-            background: #f8f9fa;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border-left: 4px solid #3498db;
+        .info-box li {
+            padding: 10px 0;
+            border-bottom: 1px solid #bdc3c7;
         }
         
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-        
-        footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
+        .info-box li:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>[BUCHTITEL HIER EINFÜGEN]</h1>
-        <p class="subtitle">[UNTERTITEL ODER SLOGAN]</p>
+        <h1>✨ Die 6 Stämme ✨</h1>
+        <p class="subtitle">Eine magische Fantasy-Buchreihe</p>
     </header>
 
     <div class="container">
-        <!-- Über das Buch -->
+        <!-- Über die Buchreihe -->
         <section id="ueber">
-            <h2>Über das Buch</h2>
+            <h2>Über die Buchreihe</h2>
             
-            <div class="book-cover">
-                <div class="placeholder">
-                    📖 Hier kannst du ein Bild deines Buchcovers einfügen<br>
-                    (Lade das Bild ins Repository hoch und ersetze diesen Bereich mit: &lt;img src="cover.jpg" alt="Buchcover"&gt;)
-                </div>
+            <div class="book-info">
+                <h3>📚 6 Bücher - 6 Perspektiven - Eine Geschichte</h3>
+                <p>Jedes Buch fokussiert einen der 6 Magier-Stämme. Alle Bücher spielen gleichzeitig während der Grundschulzeit und zeigen unterschiedliche Perspektiven derselben Ereignisse.</p>
             </div>
-            
-            <p class="placeholder">
-                Beschreibe hier dein Buch in 2-3 Sätzen. Was macht es besonders? Worum geht es?
-            </p>
-            
-            <div class="info-grid">
-                <div class="info-box">
-                    <strong>Genre:</strong>
-                    [z.B. Fantasy, Krimi, Romanze...]
-                </div>
-                <div class="info-box">
-                    <strong>Seitenanzahl:</strong>
-                    [z.B. 320 Seiten]
-                </div>
-                <div class="info-box">
-                    <strong>Erscheinungsdatum:</strong>
-                    [z.B. 2025]
-                </div>
-                <div class="info-box">
-                    <strong>Sprache:</strong>
-                    [z.B. Deutsch]
-                </div>
-            </div>
-        </section>
-
-        <!-- Handlung -->
-        <section id="handlung">
-            <h2>Die Handlung</h2>
-            <p class="placeholder">
-                Schreibe hier eine spannende Zusammenfassung der Handlung. Verrate nicht zu viel, aber mache neugierig!
-                Was ist der zentrale Konflikt? Wer sind die Hauptfiguren?
-            </p>
-        </section>
-
-        <!-- Charaktere -->
-        <section id="charaktere">
-            <h2>Hauptcharaktere</h2>
-            <p class="placeholder">
-                Stelle hier die wichtigsten Charaktere vor:
-            </p>
-            
-            <ul class="character-list">
-                <li>
-                    <strong>[Name des Charakters 1]</strong><br>
-                    [Kurze Beschreibung: Wer ist diese Person? Was ist ihre Rolle?]
-                </li>
-                <li>
-                    <strong>[Name des Charakters 2]</strong><br>
-                    [Kurze Beschreibung]
-                </li>
-                <li>
-                    <strong>[Name des Charakters 3]</strong><br>
-                    [Kurze Beschreibung]
-                </li>
-            </ul>
-        </section>
-
-        <!-- Leseprobe -->
-        <section id="leseprobe">
-            <h2>Leseprobe</h2>
-            <p class="placeholder">
-                Füge hier einen spannenden Ausschnitt aus deinem Buch ein. Das erste Kapitel oder eine besonders
-                packende Szene funktioniert gut, um Leser zu fesseln.
-            </p>
-            
-            <p class="placeholder">
-                "[Hier kommt der Text deiner Leseprobe...]"<br><br>
-                Du kannst mehrere Absätze einfügen, formatiere sie mit &lt;p&gt; Tags.
-            </p>
-        </section>
-
-        <!-- Über den Autor -->
-        <section id="autor">
-            <h2>Über den Autor</h2>
-            <p class="placeholder">
-                Erzähle etwas über dich! Was hat dich inspiriert, dieses Buch zu schreiben?
-                Hast du schon andere Bücher geschrieben? Was sind deine Interessen?
-            </p>
-        </section>
-
-        <!-- Kaufen/Lesen -->
-        <section id="kaufen">
-            <h2>Das Buch erhalten</h2>
-            <p>Interessiert? Hier kannst du das Buch lesen oder kaufen:</p>
-            
-            <div class="placeholder">
-                Füge hier Links zu Verkaufsplattformen hinzu, z.B.:
-            </div>
-            
-            <a href="#" class="cta-button">📚 Bei Amazon kaufen</a>
-            <a href="#" class="cta-button">📖 Bei Thalia kaufen</a>
-            <a href="#" class="cta-button">💻 E-Book herunterladen</a>
-        </section>
-
-        <!-- Kontakt -->
-        <section id="kontakt">
-            <h2>Kontakt & Social Media</h2>
-            <p class="placeholder">
-                Möchtest du in Kontakt bleiben? Folge mir auf:
-            </p>
             
             <p>
-                <a href="https://github.com/Lino-G2" class="cta-button">GitHub</a>
-                <a href="#" class="cta-button">Instagram</a>
-                <a href="#" class="cta-button">Email</a>
+In einer magischen Welt, getrennt von unserer normalen Realität, leben sechs Magier-Stämme. Jeder Stamm ist mit einem Edelstein und einem Totem-Tier verbunden und hat einzigartige Eigenschaften. Die Geschichten folgen 2-3 Hauptcharakteren pro Buch durch ihre Abenteuer in der magischen Grundschule, wo sie nicht nur Magie lernen, sondern auch die komplexen Beziehungen zwischen den Stämmen navigieren müssen.
             </p>
+            
+            <div class="info-box">
+                <h3>🌍 Die Welt</h3>
+                <ul>
+                    <li><strong>Magische Welt:</strong> Wo die 6 Stämme leben und Magie praktizieren</li>
+                    <li><strong>Normale Welt:</strong> Ähnlich unserer Erde (ca. 1850-1914 Ära)</li>
+                    <li><strong>Weitere Kulten:</strong> Elfen, Zwerge, Drachenzähmer und mehr</li>
+                    <li><strong>Magiesystem:</strong> Bücherzauber, Runenmagie, Tierverwandlung (fortgeschritten)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Die 6 Stämme -->
+        <section id="staemme">
+            <h2>Die 6 Magier-Stämme</h2>
+            
+            <div class="tribes-grid">
+                <!-- Stamm 1: Amethyst -->
+                <div class="tribe-card amethyst">
+                    <h3>💜 Amethyst</h3>
+                    <div class="tribe-animal">🐺</div>
+                    <div class="tribe-trait"><strong>Tier:</strong> Wolf</div>
+                    <div class="tribe-trait"><strong>Eigenschaften:</strong> Die Disziplinierten</div>
+                    <div class="tribe-trait"><strong>Besonderheit:</strong> Regelkonform, strukturiert, loyale Anführer</div>
+                </div>
+                
+                <!-- Stamm 2: Citrin -->
+                <div class="tribe-card citrin">
+                    <h3>💛 Citrin</h3>
+                    <div class="tribe-animal">🐆</div>
+                    <div class="tribe-trait"><strong>Tier:</strong> Gepard</div>
+                    <div class="tribe-trait"><strong>Eigenschaften:</strong> Die Abenteurer</div>
+                    <div class="tribe-trait"><strong>Besonderheit:</strong> Mutig, schnell, risikofreudig</div>
+                </div>
+                
+                <!-- Stamm 3: Rubin -->
+                <div class="tribe-card rubin">
+                    <h3>❤️ Rubin</h3>
+                    <div class="tribe-animal">🦁</div>
+                    <div class="tribe-trait"><strong>Tier:</strong> Löwe</div>
+                    <div class="tribe-trait"><strong>Eigenschaften:</strong> Die Wissbegierigen</div>
+                    <div class="tribe-trait"><strong>Besonderheit:</strong> Intelligent, forschend, neugierig</div>
+                </div>
+                
+                <!-- Stamm 4: Onyx -->
+                <div class="tribe-card onyx">
+                    <h3>🖤 Onyx</h3>
+                    <div class="tribe-animal">🦅</div>
+                    <div class="tribe-trait"><strong>Tier:</strong> Adler</div>
+                    <div class="tribe-trait"><strong>Eigenschaften:</strong> Die Trickser</div>
+                    <div class="tribe-trait"><strong>Besonderheit:</strong> Manipulativ, schlau, strategisch</div>
+                </div>
+                
+                <!-- Stamm 5: Diamant -->
+                <div class="tribe-card diamant">
+                    <h3>🤍 Diamant</h3>
+                    <div class="tribe-animal">🦊</div>
+                    <div class="tribe-trait"><strong>Tier:</strong> Schneefuchs</div>
+                    <div class="tribe-trait"><strong>Eigenschaften:</strong> Die Kreativen</div>
+                    <div class="tribe-trait"><strong>Besonderheit:</strong> Künstlerisch, einfallsreich, herzlich</div>
+                </div>
+                
+                <!-- Stamm 6: Aquamarin -->
+                <div class="tribe-card aquamarin">
+                    <h3>🩵 Aquamarin</h3>
+                    <div class="tribe-animal">🐬</div>
+                    <div class="tribe-trait"><strong>Tier:</strong> Delfin</div>
+                    <div class="tribe-trait"><strong>Eigenschaften:</strong> Die Vermittler</div>
+                    <div class="tribe-trait"><strong>Besonderheit:</strong> Diplomatisch, harmoniesuchend, empathisch</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charaktere (Editierbar) -->
+        <section id="charaktere">
+            <h2>Hauptcharaktere</h2>
+            
+            <div class="editable-section">
+                <h4>📝 Hier kannst du deine Charaktere hinzufügen:</h4>
+                <p>Für jedes Buch gibt es 2-3 Hauptcharaktere. Füge hier deine Charakterdetails ein:</p>
+                
+                <div class="character-template">
+                    <strong>Charakter 1:</strong>
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Stamm (z.B. Amethyst)">
+                    <input type="text" placeholder="Alter">
+                    <textarea placeholder="Beschreibung: Persönlichkeit, Hintergrund, besondere Fähigkeiten..."></textarea>
+                </div>
+                
+                <div class="character-template">
+                    <strong>Charakter 2:</strong>
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Stamm">
+                    <input type="text" placeholder="Alter">
+                    <textarea placeholder="Beschreibung..."></textarea>
+                </div>
+                
+                <div class="character-template">
+                    <strong>Charakter 3:</strong>
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Stamm">
+                    <input type="text" placeholder="Alter">
+                    <textarea placeholder="Beschreibung..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Die Handlung (Editierbar) -->
+        <section id="handlung">
+            <h2>Die Handlung</h2>
+            
+            <div class="editable-section">
+                <h4>📖 Haupthandlung</h4>
+                <p>Beschreibe hier die zentrale Handlung deiner Geschichte:</p>
+                <textarea placeholder="Was ist der Hauptkonflikt? Was passiert in der magischen Grundschule? Welche Herausforderungen müssen die Charaktere meistern?"></textarea>
+            </div>
+            
+            <div class="editable-section">
+                <h4>⚔️ Konflikte zwischen den Stämmen</h4>
+                <p>Welche Rivalitäten und Allianzen gibt es?</p>
+                <textarea placeholder="z.B. Amethyst vs. Onyx (Regelkonformität vs. Manipulation), Allianzen zwischen bestimmten Stämmen..."></textarea>
+            </div>
+        </section>
+
+        <!-- Magiesystem (Editierbar) -->
+        <section id="magie">
+            <h2>Das Magiesystem</h2>
+            
+            <div class="info-box">
+                <h3>🔮 Magiearten</h3>
+                <ul>
+                    <li><strong>Bücherzauber:</strong> Grundlegende Magie aus Zauberbüchern</li>
+                    <li><strong>Runenmagie:</strong> Fortgeschrittene magische Symbole</li>
+                    <li><strong>Tierverwandlung:</strong> Verwandlung in das Totem-Tier des Stammes (nur im letzten Schuljahr)</li>
+                </ul>
+            </div>
+            
+            <div class="editable-section">
+                <h4>✨ Weitere Magie-Details</h4>
+                <textarea placeholder="Füge hier weitere Details zum Magiesystem hinzu: Wie funktioniert die Magie? Gibt es Einschränkungen? Besondere Zauber?"></textarea>
+            </div>
+        </section>
+
+        <!-- Weltenbau (Editierbar) -->
+        <section id="welt">
+            <h2>Weltenbau</h2>
+            
+            <div class="editable-section">
+                <h4>🌲 Schauplätze</h4>
+                <textarea placeholder="Beschreibe wichtige Orte: Die magische Schule, Stammgebiete, besondere Locations..."></textarea>
+            </div>
+            
+            <div class="editable-section">
+                <h4>👥 Andere Völker</h4>
+                <p>Neben den 6 Magier-Stämmen gibt es:</p>
+                <textarea placeholder="Elfen-Arten (z.B. Waldelfen, Hochelfen), Zwerge, Drachenzähmer, andere Kulten..."></textarea>
+            </div>
+        </section>
+
+        <!-- Schreibfortschritt -->
+        <section id="fortschritt">
+            <h2>Schreibfortschritt</h2>
+            
+            <div class="editable-section">
+                <h4>📊 Aktueller Stand</h4>
+                <input type="number" placeholder="Geschriebene Wörter">
+                <input type="number" placeholder="Ziel-Wortanzahl">
+                <textarea placeholder="Notizen zum Fortschritt, nächste Schritte, Ideen..."></textarea>
+            </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 [DEIN NAME]. Alle Rechte vorbehalten.</p>
-        <p><a href="https://github.com/Lino-G2/Lino-G2.github.io">Website auf GitHub</a></p>
+        <p>&copy; 2025 Lino-G2. Alle Rechte vorbehalten.</p>
+        <p><a href="https://github.com/Lino-G2/Lino-G2.github.io">Website auf GitHub bearbeiten</a></p>
+        <p style="margin-top: 20px; opacity: 0.8;">✨ Basierend auf deinem Notion-Buchprojekt "BB" ✨</p>
     </footer>
 </body>
 </html>
